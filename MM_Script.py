@@ -58,20 +58,6 @@ def info_q(htm):
     else:
         return '\bell'
 
-#it was a bad idea
-def verb_p(anal):
-    new = []
-    if anal == '\bell':
-        return '\bell'
-    for vari in anal:
-        for tag in vari:
-            if tag == "V":
-                new.append(vari)
-    if new:
-        return new
-    else:
-        return anal
-
 #And despise commas, they are analed too
 def comma_d(anal):
     if anal == '\bell':
@@ -118,7 +104,7 @@ def text_walker(text):
                     continue
                 #next line sends the word to the site, gets the respond, processes it and writes into a special file
                 #writings = "-".join(comma_d(verb_p(info_q(from_site_get(word))))) + "\t"
-                writings = str(comma_d(verb_p(info_q(from_site_get(word))))) + "\t"
+                writings = str(comma_d(info_q(from_site_get(word)))) + "\t"
                 writer("glosses.txt", writings)
             writer("glosses.txt", "\n")
 
